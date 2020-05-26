@@ -1,6 +1,6 @@
 
 
-package Hemwork_Q3;
+package HemworkCh3;
 
 
 import java.util.function.IntConsumer;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Homwork_Q2;
+package HemworkCh2;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -43,13 +43,12 @@ import javafx.stage.Stage;
  *
  * @author Educ
  */
-public class JavaFXApplication3 extends Application {
+public class  Q3    extends Application {
 // LAB PROJECT
     Stage window;
     Scene Scene1, Scene2; 
     public Label Labe5;
-    VBox nn = new VBox();
-    HBox ll = new HBox();
+
     @Override
     public void start(Stage primaryStage) {
    primaryStage.setTitle("Temperature converter");
@@ -75,14 +74,10 @@ public class JavaFXApplication3 extends Application {
             double kelvin2 = (celsius + 273.15);
             labele2.setText(" New Temperaturer in is :" + kelvin2);
         });
-        nn.getChildren().addAll(bb,textField,labele2);
-        ll.getChildren().addAll(Button1,Button2);
-       nn.getChildren().add(ll);
-        nn.setAlignment(Pos.CENTER);
-        ll.setAlignment(Pos.CENTER);
-        Scene cc = new Scene(nn,500,200);
-         
-        
+        VBox vv= new VBox(10,bb,textField,Button1,Button2,labele2);
+       
+        vv.setAlignment(Pos.CENTER);
+        Scene cc = new Scene(vv,500,200);
         primaryStage.setScene(cc);
         primaryStage.show();
         
