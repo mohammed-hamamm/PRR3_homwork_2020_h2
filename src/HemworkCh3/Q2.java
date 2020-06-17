@@ -1,35 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package HemworkCh3;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Scanner;
 
-/**
- *
- * @author Extreme
- */
-
-//    public static void main(String[] args) throws Exception {
-//        TreeMap<Character, Integer> hashMap = new TreeMap<Character, Integer>();
-//        File file = new File("C:/text2.txt");
-//        Scanner scanner = new Scanner(file,"utf-8");
-//        while (scanner.hasNext()) {
-//            char[] chars = scanner.nextLine().toLowerCase().toCharArray();
-//            for (Character jj : chars) {
-//                if(!Character.isLetter(jj)){
-//                    continue;
-//                }
-//                else if (hashMap.containsKey(jj)) {
-//                    hashMap.put(c, hashMap.get(jj) + 1);
-//                } else {
-//                    hashMap.put(jj, 1);
-//                }
-//            }
-//        }
-//        for (Map.Entry<Character, Integer> entry : hashMap.entrySet()) {
-//            System.out.println(entry.getKey() + ": " + entry.getValue());
-//        }
-//    }
-//}
-
+public class Q2 {
+   public static void main(String[] args) throws Exception {
+       Scanner sc = new Scanner(new File("input.txt"));
+       HashMap<String, Integer> words = new HashMap<String, Integer>();
+       while (sc.hasNext()) {
+           String key = sc.next();
+           if (words.containsKey(key)) {
+               words.put(key, words.get(key) + 1);
+           } else {
+               words.put(key, 1);
+           }
+       }
+       for (String k : words.keySet()) {
+           int val = words.get(k);
+           System.out.println(k + " : " + val);
+           HashMap<Character, Integer> chars = new HashMap<Character, Integer>();
+           for (int i = 0; i < k.length(); i++) {
+               char ch = k.charAt(i);
+               if (chars.containsKey(ch)) {
+                   chars.put(ch, chars.get(ch) + 1);
+               } else {
+                   chars.put(ch, 1);
+               }
+           }
+           for (Character c : chars.keySet())
+               System.out.println("\t"+c + " : " + chars.get(c));
+       }
+   }
+}
